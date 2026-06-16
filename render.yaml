@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: testpass
+    env: php
+    buildCommand: "cp includes/config.example.php includes/config.php"
+    startCommand: "php -S 0.0.0.0:$PORT -t public"
+    rootDir: .
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: UPSTREAM_BASE
+        sync: false   # Set this manually in Render dashboard
